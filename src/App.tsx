@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import SongModel  from './models/SongModel';
 import { Song } from './components/Song';
-import { getSongs } from './Connector';
+import { addSong, getSongs } from './Connector';
 
 function App() {
   
@@ -14,8 +14,11 @@ function App() {
   }, [] )
 
   const songModel : SongModel = {
-    _id : 'thisistheid : ',
     title : "tes"
+  }
+
+  function testButton(){
+    addSong(songModel, setSongs)
   }
 
   return (
@@ -24,7 +27,6 @@ function App() {
         Taiko Score Tracker
         {
           songs.map (showSongs)
-          
         }
         <button onClick = {testButton}>test</button>
       </header>
@@ -32,9 +34,6 @@ function App() {
   );
 }
 
-function testButton(){
-  
-}
 
 function showSongs(songModel : SongModel){
   return <Song
